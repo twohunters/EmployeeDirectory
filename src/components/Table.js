@@ -11,10 +11,6 @@ class Table extends Component {
     };
 
     componentDidMount() {
-        this.getEmployees();
-    };
-
-    getEmployees() {
         API.getEmployees()
             .then(res => {
                 this.setState({
@@ -27,14 +23,14 @@ class Table extends Component {
     searchEmployees = (event) => {
         event.preventDefault();
 
-        const search = this.state.search;
-        const list = this.state.results.filter(item => {
+        const employeeSearch = this.state.search;
+        const employeeList = this.state.results.filter(item => {
             let value = Object.values(item).join("").toLowerCase();
-            return value.indexOf(search.toLowerCase()) !== -1;
+            return value.indexOf(employeeSearch.toLowerCase()) !== -1;
         });
 
         this.setState({
-            resultsFiltered: list
+            resultsFiltered: employeeList
         });
     };
 
