@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import Search from "./Search";
+import Employees from "./Employees";
 import API from "../utils/API";
 
 class Table extends Component {
@@ -46,7 +47,34 @@ class Table extends Component {
     };
 
     render = () => {
-        
+        return (
+            <div>
+                <Header />
+                <Search handleInputChange={this.handleInputChange} handleFormSubmit={this.searchEmployees} search={this.state.search} />
+                <table className="table">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                    </tr>
+                    <tbody>
+                        {
+                            this.state.results.map((employee, index) => (
+                                <Employees
+                                    key={index}
+                                    picture={employee.picture}
+                                    name={employee.name}
+                                    email={employee.email}
+                                    phone={employee.phone}
+                                    index={index}
+                                />
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
+        )
     };
 }
 

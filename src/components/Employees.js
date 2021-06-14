@@ -5,7 +5,6 @@ const Employees = (props) => {
             <td>{props.name.first} {props.name.last}</td>
             <td><a href={`mailto${props.email}`}>{this.props.email}</a></td>
             <td>{props.phone}</td>
-            <td>{props.dob}</td>
         </tr>
     )
 }
