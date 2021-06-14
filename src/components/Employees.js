@@ -9,4 +9,4 @@ const Employees = (props) => {
     )
 }
 
-export default Employees
+export default Employees;
